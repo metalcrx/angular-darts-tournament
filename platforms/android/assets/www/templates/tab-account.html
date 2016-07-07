@@ -1,0 +1,45 @@
+<ion-view view-title="Rounds">
+  <ion-content>
+    <div class="jumbotron dartsContainer">
+	<h2>Round: {{rounds}}</h2>
+	<h2>Giocatore: {{currentPlayer}}</h2>
+	<h2>{{congratulations}}</h2>
+	<h2>Punteggio totale: {{currentScore}}</h2>
+	<h2 ng-hide="win">Punteggio: {{scoreRound}}</h2>
+
+	<div class=".col-md-6 .col-md-offset-3 playerList">
+
+		<div class="input-group dartsInput">
+			<input type="text" class="form-control" placeholder="Inserisci il punteggio del primo lancio..." ng-model="fShot">
+			<span class="input-group-btn">
+			    <button class="btn btn-default" type="button" ng-click="addScore1()" ng-disabled="buttonClicked1">
+			    	<span class="glyphicon glyphicon-plus"></span>
+			    </button>
+			</span>
+		</div> <!-- input-group -->
+
+		<div class="input-group dartsInput">
+			<input type="text" class="form-control" placeholder="Inserisci il punteggio del secondo lancio..." ng-model="sShot">
+			<span class="input-group-btn">
+			    <button class="btn btn-default" type="button" ng-click="addScore2()" ng-disabled="buttonClicked2">
+			    	<span class="glyphicon glyphicon-plus"></span>
+			    </button>
+			</span>
+		</div> <!-- input-group -->
+
+		<div class="input-group dartsInput">
+			<input type="text" class="form-control" placeholder="Inserisci il punteggio del terzo lancio..." ng-model="tShot">
+			<span class="input-group-btn">
+			    <button class="btn btn-default" type="button" ng-click="addScore3()" ng-disabled="buttonClicked3">
+			    	<span class="glyphicon glyphicon-plus"></span>
+			    </button>
+			</span>
+		</div> <!-- input-group -->
+		
+		<div class="dartsButton">
+	    	<a class="btn btn-info btn-lg" role="button" ng-click="loadRound()" ng-hide="win">Avanti un altro</a>
+		</div>
+	</div>
+</div>
+  </ion-content>
+</ion-view>
