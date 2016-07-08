@@ -1,1 +1,1 @@
-# angular-darts-tournament
+# ionic-darts-tournament
