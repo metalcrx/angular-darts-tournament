@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/next/Scrivania/Vendini/ionicDarts/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="6b53d2d2ff781e7d16aedcf75cbe5c1002fbee2f">
+        <dex dex="/home/next/Scrivania/Vendini/ionicDarts/platforms/android/build/intermediates/pre-dexed/debug/CordovaLib-unspecified-debug_9ea9aba3ad4cedd23499ae3d3ec3e22605a5eb95.jar" />
+    </item>
+
+</items>
