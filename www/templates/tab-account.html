@@ -1,5 +1,5 @@
 <ion-view view-title="Rounds">
-  <ion-content>
+  <ion-content class="padding">
     <div class="jumbotron dartsContainer">
 	<h2>Round: {{rounds}}</h2>
 	<h2>Giocatore: {{currentPlayer}}</h2>
@@ -22,7 +22,7 @@
 			<input type="text" class="form-control" placeholder="Inserisci il punteggio del secondo lancio..." ng-model="sShot">
 			<span class="input-group-btn">
 			    <button class="btn btn-default" type="button" ng-click="addScore2()" ng-disabled="buttonClicked2">
-			    	<span class="glyphicon glyphicon-plus"></span>
+			    <span class="glyphicon glyphicon-plus"></span>
 			    </button>
 			</span>
 		</div> <!-- input-group -->
@@ -36,9 +36,11 @@
 			</span>
 		</div> <!-- input-group -->
 		
-		<div class="dartsButton">
-	    	<a class="btn btn-info btn-lg" role="button" ng-click="loadRound()" ng-hide="win">Avanti un altro</a>
-		</div>
+	</div>
+
+	<div class="btn-group-vertical dartsButton" role="group">
+		<a class="btn btn-warning btn-lg" role="button" href="#/tab/chats">Torna Indietro</a>
+	    <a class="btn btn-info btn-lg" role="button" ng-click="loadRound()" ng-hide="win">Avanti un altro</a>
 	</div>
 </div>
   </ion-content>

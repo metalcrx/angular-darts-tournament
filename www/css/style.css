@@ -8,7 +8,7 @@
 }
 
 .dartsButton {
-	margin-top: 5rem;
+	width: 100%;
 }
 
 .dartsInput {
@@ -17,4 +17,9 @@
 
 thead tr th {
 	text-align:center;
+}
+
+
+.disable-clickon-tabs .tab-nav.tabs {
+    pointer-events: none !important;
 }

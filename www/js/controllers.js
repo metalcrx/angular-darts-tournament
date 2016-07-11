@@ -1,5 +1,9 @@
 angular.module('starter.controllers', [])
 
+.controller('TabsCtrl', function($scope) {
+  localStorage.setItem('players', JSON.stringify($scope.players));
+})
+
 .controller('DashCtrl', function($scope) {})
 
 .controller('ChatsCtrl', function($scope) {
@@ -20,7 +24,6 @@ angular.module('starter.controllers', [])
 
   localStorage.setItem('players', JSON.stringify($scope.players));
   localStorage.setItem('storagePlayers', JSON.stringify($scope.storagePlayers));
-
 
 
   // Aggiunge un giocatore tramite l'input e inizializza il punteggio, creando un array di oggetti in player
