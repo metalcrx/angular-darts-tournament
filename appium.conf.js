@@ -19,9 +19,9 @@ exports.config = {
     //autoWebviewTimeout: 10,
     browserName: '', // Must be blank (or non-existent?) to use 'app'
     platformName: 'Android',
-    platformVersion: '5.1',
+    platformVersion: '5.0.1',
     //deviceName: 'iPhone Simulator',
-    deviceName: 'emulator-5554',
+    deviceName: '6a1493b8',
     app: path.resolve("platforms/android/build/outputs/apk/android-debug.apk")
   },
 
