@@ -1,35 +1,38 @@
-var path = require("path");
-//var appium = require('appium');
 var protractor = require('protractor');
 
 exports.config = {
-  // Error: Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.
-  //framework: 'jasmine2',
-
-  seleniumAddress: 'http://localhost:4723/wd/hub',
+  
+  sauceSeleniumAddress: 'ondemand.saucelabs.com:80/wd/hub',
 
   specs: [
     'spec/*.spec.js'
   ],
 
-  // Reference: https://github.com/appium/sample-code/blob/master/sample-code/examples/node/helpers/caps.js
-  capabilities: {
-    //autoWebview: true, // timeout: timed out after 30000 msec waiting for spec to complete
-    autoWebview: true, // WEBVIEW_1
-    //autoWebviewTimeout: 10,
-    browserName: '', // Must be blank (or non-existent?) to use 'app'
+  sauceUser: "vendini-italia",
+  sauceKey: "c8925b86-e7fa-49a3-b634-2afee0f4e1d4",
+
+  multiCapabilities: [
+    {
+    autoWebview: true,
+    browserName: '',
+    platformName: 'iOS',
+    platformVersion: '9.0',
+    deviceName: 'iPhone 5s',
+    deviceOrientation: 'portrait',
+    appiumVersion: "1.5.3",
+    app: "sauce-storage:ionicDarts.zip"
+    }, {
+    autoWebview: true,
+    browserName: '',
     platformName: 'Android',
-    platformVersion: '5.0.1',
-    //deviceName: 'iPhone Simulator',
-    deviceName: '6a1493b8',
-    app: path.resolve("platforms/android/build/outputs/apk/android-debug.apk")
-  },
+    platformVersion: '4.4',
+    deviceName: 'Samsung Galaxy S4 Emulator',
+    deviceOrientation: 'portrait',
+    appiumVersion: "1.5.3",
+    app: "sauce-storage:android-debug.apk"
+    }
+  ],
 
-  baseUrl: 'http://localhost:8100',
-
-  // Configuring wd in onPrepare
-  // wdBridge helps to bridge wd driver with other selenium clients
-  // See https://github.com/sebv/wd-bridge/blob/master/README.md
   onPrepare: function () {
     console.log("onPrepare()");
     var wd = require('wd'),

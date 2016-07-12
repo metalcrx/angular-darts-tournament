@@ -10,5 +10,4 @@ describe('Test ionicDarts Players', function() {
   it('should have a input', function() {
 	  expect(input_player.isPresent()).toBe(true);
 	});
-
 });
