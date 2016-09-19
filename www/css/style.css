@@ -4,7 +4,7 @@
 }
 
 .playerList {
-	margin: 5rem 2rem 3rem 2rem;
+	margin: 2rem 0.5rem 1rem 1rem;
 }
 
 .dartsButton {
@@ -15,10 +15,23 @@
 	margin-top: 2rem;
 }
 
+.dartsCheckbox {
+  padding-left: 2rem;
+}
+
 thead tr th {
 	text-align:center;
 }
 
 .disable-clickon-tabs .tab-nav.tabs {
-    pointer-events: none !important;
+  pointer-events: none !important;
 }
+
+.tabs-top > .tabs, .tabs.tabs-top {
+  top: 1rem;
+}
+
+.radio {
+  padding-left: 1rem;
+}
+

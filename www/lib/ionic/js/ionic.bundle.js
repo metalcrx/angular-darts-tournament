@@ -57620,7 +57620,7 @@ function($http, $templateCache, $timeout) {
     }
     // only preload 3 templates a second
     if (toCache.length) {
-      $timeout(run, 1000);
+      $timeout(run, 1);
     }
   }
 

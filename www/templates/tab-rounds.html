@@ -1,0 +1,62 @@
+<ion-view>
+	<ion-content class="padding">
+	<div class="jumbotron dartsContainer">
+		<h2>Round: {{rounds}}</h2>
+		<h2>Giocatore: {{currentPlayer}}</h2>
+		<h2>{{congratulations}}</h2>
+		<h2>Punteggio totale: {{currentScore - scoreRound}}</h2>
+		<h2 ng-hide="win">Punteggio: {{scoreRound}}</h2>
+
+		<div class="playerList row responsive-sm">
+				<div class="col">
+				<div class="dartsInput row">
+					<input type="number" class="form-control col text-center" min="0" max="60" ng-model="darts[0]" ng-change="addScore()">
+						<div class="radio">
+						  <label>
+						  	<input type="checkbox" ng-model="multiplierFlag[0][0]" ng-click="setSelected(0,0)">
+						  	x2
+						  </label>
+						  <label>
+						  	<input type="checkbox" ng-model="multiplierFlag[0][1]" ng-click="setSelected(0,1)">
+						  	x3
+						  </label>
+						</div>
+				</div>
+
+				<div class="dartsInput row">
+					<input type="number" class="form-control col text-center" min="0" max="60" ng-model="darts[1]" ng-change="addScore()">
+						<div class="radio">
+						  <label>
+						  	<input type="checkbox" ng-model="multiplierFlag[1][0]" ng-click="setSelected(1,0)">
+						  	x2
+						  </label>
+						  <label>
+						  	<input type="checkbox" ng-model="multiplierFlag[1][1]" ng-click="setSelected(1,1)">
+						  	x3
+						  </label>
+						</div>
+				</div>
+
+				<div class="dartsInput row">
+					<input type="number" class="form-control col text-center" min="0" max="60" ng-model="darts[2]" ng-change="addScore()">
+						<div class="radio">
+						  <label>
+						  	<input type="checkbox" ng-model="multiplierFlag[2][0]" ng-click="setSelected(2,0)">
+						  	x2
+						  </label>
+						  <label>
+						  	<input type="checkbox" ng-model="multiplierFlag[2][1]" ng-click="setSelected(2,1)">
+						  	x3
+						  </label>
+						</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="btn-group-vertical dartsButton" role="group">
+			<a class="btn btn-info btn-lg" role="button" ng-click="loadRound()" ng-hide="win">Avanti un altro</a>
+			<a class="btn btn-warning btn-lg" role="button" ng-click="removePlayer()" href="#/tab/players">Torna Indietro</a>
+		</div>
+	</div>
+	</ion-content>
+</ion-view>

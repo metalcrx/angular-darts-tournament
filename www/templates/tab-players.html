@@ -1,0 +1,68 @@
+<ion-view>
+  <ion-content class="padding">
+  <div class="jumbotron dartsContainer">
+    <h1>Inserisci i giocatori*</h1>
+    <p>*(I giocatori devono essere minimo 2)</p>
+
+    <div class=".col-md-6 .col-md-offset-3" ng-show="storagePlayers.length >= 1">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          Lista giocatori abituali 
+          <button type="button" class="btn btn-info" ng-click="removeAllPlayersVip()">
+          Remove All
+          </button>
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Inserisci</th>
+              <th>Cancella</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="friend in storagePlayers">
+              <td>{{friend.name}}</td>
+              <td>
+                <button type="button" class="btn btn-success" ng-click="addPlayerInList(friend)">
+                  +
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger" ng-click="removePlayerStorage(friend)">
+                  x
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class=".col-md-6 .col-md-offset-3 playerList">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Aggiungi un nuovo giocatore..." ng-model="players.name">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" ng-click="addPlayer()">
+            <span class="glyphicon glyphicon-plus"></span>
+          </button>
+        </span>
+      </div> <!-- input-group -->
+    </div> <!-- col-lg-6 -->
+
+    <div>
+      <ion-list class="list-group playerList">
+        <ion-item class="list-group-item" ng-repeat="player in players">
+          <p> {{ player.name }} </p>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div class="btn-group-vertical dartsButton" role="group">
+      <a class="btn btn-info btn-lg" role="button" href="#/tab/rounds" ng-show="players.length >= 2">Inizia la partita</a>
+      <a class="btn btn-warning btn-lg" role="button" ng-click="removePlayer()" ng-show="players.length >= 1">Cancella i giocatori</a>
+    </div>
+  </div>
+  </ion-content>
+</ion-view>
