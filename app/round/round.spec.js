@@ -2,7 +2,7 @@
 
 describe('Unit: round', function() {
 
-  var createCtrl;
+  /*var createCtrl;
   var $localStorage;
   // Include Modules
   beforeEach(module('app.round'));
@@ -25,5 +25,5 @@ describe('Unit: round', function() {
   it('Should have a scoreRound to equal zero', function() {
     var ctrl = createCtrl();
     expect(ctrl.scoreRound).toEqual(0);
-  });
+  });*/
 });

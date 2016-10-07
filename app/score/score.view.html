@@ -9,10 +9,13 @@
         <tr ng-repeat="round in vm.rounds"><td>{{round}}</td><td ng-repeat="vipPlayer in vm.selectedPlayers">{{vipPlayer.scores[vm.rounds.indexOf(round)]}}</td></tr>
       </table>
     </div>
+  </div>
 
+  <div class=".col-md-6 .col-md-offset-3 playerList" >
   </div>
   <div class=".col-md-6 .col-md-offset-3 playerList" >
     <p> Next player: {{vm.selectedPlayers[vm.indexCurrentPlayer].name}} </p>
+    {{vm.prova}}
   </div>
   <div class="dartsButton">
     <a class="btn btn-info btn-lg" role="button" href="#!/round" ng-click="vm.start()">{{vm.rounds[vm.rounds.length-1]}}</a>

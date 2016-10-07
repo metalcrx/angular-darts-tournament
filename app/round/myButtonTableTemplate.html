@@ -1,0 +1,23 @@
+<table class="table">
+  <tr>   
+    <tr><td ng-repeat="button in vm.buttonList.slice(0, 5)">
+      <a class="btn btn-default btn-circle btn-xl" ng-disabled="button.disabled" ng-click="vm.addShotScore(button.value, vm.buttonList.indexOf(button))">{{button.value}}</a>
+    </td></tr> 
+    <tr><td ng-repeat="button in vm.buttonList.slice(5, 10)">
+      <a class="btn btn-default btn-circle btn-xl" ng-disabled="button.disabled" ng-click="vm.addShotScore(button.value, vm.buttonList.indexOf(button))">{{button.value}}</a>
+    </td></tr>
+    <tr><td ng-repeat="button in vm.buttonList.slice(10, 15)">
+      <a class="btn btn-default btn-circle btn-xl" ng-disabled="button.disabled" ng-click="vm.addShotScore(button.value, vm.buttonList.indexOf(button))">{{button.value}}</a>
+    </td></tr>
+    <tr><td ng-repeat="button in vm.buttonList.slice(15, 20)">
+      <a class="btn btn-default btn-circle btn-xl" ng-disabled="button.disabled" ng-click="vm.addShotScore(button.value, vm.buttonList.indexOf(button))">{{button.value}}</a>
+    </td></tr>
+    <tr>
+      <td><a class="btn btn-default btn-circle btn-xl" ng-click="vm.deleteShotScore()"><i class="glyphicon glyphicon-remove"></i></a></td>
+      <td ng-repeat="button in vm.buttonList.slice(20, 23)">
+        <a class="btn btn-default btn-circle btn-xl" ng-disabled="button.disabled" ng-click="vm.addShotScore(button.value, vm.buttonList.indexOf(button))">{{button.value}}</a>
+      </td>
+      <td><a class="btn btn-default btn-circle btn-xl" ng-click="vm.winCheck()"><i class="glyphicon glyphicon-chevron-right"></i> </a></td>
+    </tr>
+  </tr>
+</table>

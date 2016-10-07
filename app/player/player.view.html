@@ -1,17 +1,19 @@
-<div class="jumbotron dartsContainer">
+<div class="jumbotron dartsContainer" data-ng-init="vm.init()" ><!--ng-controller="playerCtrl"-->
   <h1>Add players*</h1>
   <p>*(Players must be at least 2)</p>
 
   <div class=".col-md-6 .col-md-offset-3 playerList" >
 
+
+
     <div class="panel panel-success">
       <div class="panel-heading">List of VIP player(s)</div>
 
-      <p ng-show=vm.isAddPlayerButtonClicked> 
+      <p ng-show=!vm.isAddPlayerButtonVisible> 
         <input type="text" class="form-control" name="namePlayer" placeholder="Add a new player..." ng-model="vm.name" >
         <span class="input-group-btn">
           <!-- saveButton -->
-          <button class="btn btn-default" type="button" ng-click="vm.addPlayer()" ng-disabled="playerForm.$invalid">
+          <button class="btn btn-default" type="button" ng-click="vm.addPlayer(vm.name)" ng-disabled="playerForm.$invalid">
             <span class="glyphicon glyphicon-plus"></span>
           </button>
         </span>
@@ -19,20 +21,19 @@
 
       <table>	
         <tr>
-         <td><img class="flex" img src="/app/images/addPlayer.png" ng-click=vm.addPlayerButtonClicked() ng-show=!vm.isAddPlayerButtonClicked role="button"></td>
-          <td ng-repeat="vipPlayer in vm.storagePlayers">
+         <td><img class="flex" img src="/app/images/addPlayer.png" ng-click=vm.addPlayerButtonClicked() ng-show=vm.isAddPlayerButtonVisible role="button"></td>
+          <td ng-repeat="vipPlayer in vm.vipPlayersList">
             <img class="flex" src="/app/images/emptyProfile.png" ng-click="vm.togglePlayer(vipPlayer)" ng-show=!vipPlayer.selected>
             <img class="flex" src="/app/images/emptyProfileSelected.png" ng-click="vm.togglePlayer(vipPlayer)" ng-show=vipPlayer.selected>
           </td>
         </tr>
         <tr>
           <td></td>
-          <td ng-repeat="vipPlayer in vm.storagePlayers">{{vipPlayer.name}}</td>
+          <td ng-repeat="vipPlayer in vm.vipPlayersList">{{vipPlayer.name}}</td>
         </tr>
       </table>
     </div>
   </div>
-
   <div class="dartsButton">
     <!-- startButton -->
     <a class="btn btn-info btn-lg" role="button" href="#!/score" ng-show="vm.isStartButtonVisible" ng-click="vm.startTournament()">Start</a>

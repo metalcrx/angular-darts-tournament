@@ -4,7 +4,7 @@ table thead tr th{text-align:center}
 
 .dartsContainer{text-align:center}.dartsContainer .dartsButton{margin-top:5rem}.dartsContainer .dartsInput{margin-top:2rem}
 
-.playerList{margin:5rem 40rem 3rem 40rem}.flex{max-width:15%}ul#menu li{display:inline;padding:10px;background-image:url("images/darts.jpg")}
+.playerList{margin:5rem 40rem 3rem 40rem}.flex{max-width:60%}ul#menu li{display:inline;padding:10px;background-image:url("images/darts.jpg")}
 
 .btn-circle.btn-xl{width:70px;height:70px;padding:10px 16px;font-size:24px;line-height:2.33;border-radius:35px}
 

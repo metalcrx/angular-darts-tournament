@@ -2,7 +2,7 @@
 
 angular.module('app.player')
 
-.controller('playerCtrl', ['$localStorage', function($localStorage) {
+.controller('playerCtrl', function(player, round) {
   var vm = this;
   var minNumPlayersForTournament = 2; // minimum number of players to start a tournament
   
@@ -11,58 +11,40 @@ angular.module('app.player')
   vm.togglePlayer = togglePlayer;
   vm.startTournament = startTournament;
   
-  vm.isAddPlayerButtonClicked = false; // addButton is initially visibile and not clicked
+  player.deselectAllPlayer(); //svuota la lista dei giocatori selezionati al caricamento del modulo
+  player.initVipPlayer(); //initialize the vip player list (selected property to false end scores to [201])
 
-  vm.storagePlayers = []; // array with VIP players
-  
-  vm.selectedPlayers = []; // array with selected players
-
-  vm.savedStorage = $localStorage.storagePlayers = $localStorage.storagePlayers || [];
-  
-  vm.storagePlayers = vm.savedStorage; // load the VIP players in the table
-  
+  vm.vipPlayersList = player.vipPlayerList; // load the VIP players in the table
+  vm.selectedPlayers = player.selectedPlayers; // array with selected players
+  vm.isAddPlayerButtonVisible = true; // addButton is initially visibile
   vm.isStartButtonVisible = false; //controls the shown of start button
   
   /* add player with a name, initial score and state (selected or not) */
-  function addPlayer() {
-    vm.storagePlayers.push({ 
-      'name':vm.name,
-      'scores':[201],
-      'selected':false
-    });
+  function addPlayer(name) {
+    player.addPlayerWithName(name);
     vm.name = ''; // clear input
-    $localStorage.storagePlayers = vm.storagePlayers;
-    vm.isAddPlayerButtonClicked = false; // when a player has been added, addButton has to be visibile
+    vm.isAddPlayerButtonVisible = true; // when a player has been added, addPlayerButton has to be visibile
   }
 
   /* sets the value of isAddButtonClicked on true when addButton is clicked */
   function addPlayerButtonClicked() {
-    vm.isAddPlayerButtonClicked = true;
+    vm.isAddPlayerButtonVisible = false;
   }
 
   /* put or remove the vip player in the list of selected player */
   function togglePlayer(friend) {
-    var index = vm.selectedPlayers.indexOf(friend);
-    friend.scores = [201];
-    if (index == -1)  // select
-      vm.selectedPlayers.push(friend);
-    else  // deselect
-      vm.selectedPlayers.splice(index, 1);
+    player.togglePlayer(friend);
     friend.selected = !friend.selected;
-    $localStorage.selectedPlayers = vm.selectedPlayers; 
-    
     vm.isStartButtonVisible = false;
     if (vm.selectedPlayers.length >= minNumPlayersForTournament)
       vm.isStartButtonVisible = true;
   }
 
-  /* brings back to false the state (selected or not) of the selected players */
+  /* brings back to false the state (selected or not) of the selected players 
+     and intialize the first round */
   function startTournament() {
-    $localStorage.rounds = ['Start', 'Round 1'];
-    $localStorage.indexCurrentPlayer = 0;
-    $localStorage.shotNumber = 0;
-    $localStorage.bonus = 1;
-    for (var i in vm.selectedPlayers)
-      vm.selectedPlayers[i].selected = false;
+    player.initVipPlayer();
+    player.setIndexCurrentPlayer(0);
+    round.init();
   }
-}]);
+});

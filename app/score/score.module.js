@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('app.score', [
+angular
+.module('app.score', [
   'ngRoute',
   'ngStorage'
 ])
